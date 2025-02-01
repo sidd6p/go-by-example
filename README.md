@@ -72,7 +72,7 @@ Contributions are welcome! If you’d like to improve an example or add new expl
 4. Submit a Pull Request
 
 ## 📜 License
-This project is licensed under the **MIT License**.
+This project is licensed under the **Apache License**.
 
 ## 📬 Contact
 🔗 [GitHub](https://github.com/sidd6p) | ✉️ siddpurwar@gmail.com
