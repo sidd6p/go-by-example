@@ -44,7 +44,7 @@ A collection of **Go (Golang) examples** inspired by [Go by Example](https://gob
    ```
 2. Navigate to the project folder:
    ```bash
-   cd learn-go
+   cd go-by-example
    ```
 3. Run Go scripts to test implementations:
    ```bash
