@@ -24,7 +24,7 @@ type myError struct {
 
 // Error method implements the error interface for `myError`,
 // providing a formatted error message.
-func (e *myError) Error() string {
+func (e myError) Error() string {
 	return fmt.Sprintf("%d - %s", e.num, e.prob)
 }
 
@@ -33,7 +33,7 @@ func (e *myError) Error() string {
 func f2(num int) (int, error) {
 	if num == 0 {
 		// Return a custom error when the input is zero
-		return -1, &myError{num, "it is zero"}
+		return -1, myError{num, "it is zero"}
 	}
 	// Return the reciprocal and no error
 	return int(1.0 / float64(num)), nil
@@ -51,7 +51,7 @@ func main() {
 	// Handling the custom error returned by f2
 	_, e := f2(0)
 	fmt.Println("This is me", e.Error()) // Accessing the error message
-	if ae, ok := e.(*myError); ok {      // Type assertion to access custom error fields
+	if ae, ok := e.(myError); ok {       // Type assertion to access custom error fields
 		fmt.Println(ae.num)  // Prints: 0
 		fmt.Println(ae.prob) // Prints: it is zero
 	}
