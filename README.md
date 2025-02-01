@@ -1,4 +1,4 @@
-# Learn Go with Examples 🚀
+# Go by Examples 🚀
 
 A collection of **Go (Golang) examples** inspired by [Go by Example](https://gobyexample.com/). This repository is designed to help developers understand Go concepts with improved explanations, additional comments, and modified code for better clarity.
 
