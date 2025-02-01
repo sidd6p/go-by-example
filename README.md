@@ -13,6 +13,7 @@ A collection of **Go (Golang) examples** inspired by [Go by Example](https://gob
 📦 go-by-example
  ┣ 📜 anonymous.go
  ┣ 📜 array.go
+ ┣ 📜 array-vs-slice
  ┣ 📜 closures.go
  ┣ 📜 enums.go
  ┣ 📜 error.go
