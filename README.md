@@ -32,6 +32,7 @@ A collection of **Go (Golang) examples** inspired by [Go by Example](https://gob
  ┣ 📜 struct-embedding.go
  ┣ 📜 struct.go
  ┣ 📜 switch.go
+ ┣ 📜 type-assertion
  ┣ 📜 type-defination.go
  ┣ 📜 variables.go
  ┣ 📜 variadic-functions.go
