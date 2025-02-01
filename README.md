@@ -11,6 +11,7 @@ A collection of **Go (Golang) examples** inspired by [Go by Example](https://gob
 ## 📂 Repository Structure
 ```
 📦 go-by-example
+ ┣ 📜 anonymous.go
  ┣ 📜 array.go
  ┣ 📜 closures.go
  ┣ 📜 enums.go
