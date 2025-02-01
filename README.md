@@ -10,7 +10,7 @@ A collection of **Go (Golang) examples** inspired by [Go by Example](https://gob
 
 ## 📂 Repository Structure
 ```
-📦 learn-go
+📦 go-by-example
  ┣ 📜 array.go
  ┣ 📜 closures.go
  ┣ 📜 enums.go
