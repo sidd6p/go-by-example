@@ -14,8 +14,8 @@ func (d1 data) multiply(d2 data) data {
 }
 
 /*
-// if you try to run this code,
-// then compiler will throw an error
+The commented code demonstrates that you cannot define methods directly on built-in types (like int). This would result in a compiler error because Go only allows methods with receivers of defined types (such as structs or custom types).
+In this case, int is a built-in type, and Go does not allow defining methods for it.
 func(d1 int)multiply(d2 int)int{
 return d1 * d2
 }
