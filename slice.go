@@ -3,8 +3,15 @@ package main
 import "fmt"
 
 /*
-When you create a slice from another slice (or array), the new slice references the same underlying array.
-Modifying the elements of the new slice will affect the original slice and the underlying array.
+When you create a slice from another slice, the new slice references the same underlying slice.
+Modifying the elements of the new slice will affect the original slice and the underlying slice.
+*/
+
+/*
+Arrays in Go are value types, meaning when you assign an array to another array or pass an array to a function,
+a copy of the array is created, not a reference to the original array.
+As a result, modifying the new array will not affect the original array.
+In contrast, slices are reference types, so they behave differently in terms of modifying the underlying data.
 */
 
 func main() {

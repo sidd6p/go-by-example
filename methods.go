@@ -12,11 +12,11 @@ type rect struct {
 	width, length int
 }
 
-// Define a method `arear` to calculate the area of the rectangle.
+// Define a method `area` to calculate the area of the rectangle.
 // This method has a receiver of type `*rect` (pointer to `rect`).
 // Using a pointer receiver allows the method to modify the original struct if needed
 // and avoids copying the struct on method calls.
-func (r *rect) arear() int {
+func (r *rect) area() int {
 	return r.length * r.width
 }
 
@@ -33,19 +33,19 @@ func main() {
 	r := rect{10, 5}
 
 	// Call methods on the `rect` instance.
-	// `arear` (pointer receiver) is called on a value (`r`), but Go automatically handles
+	// `area` (pointer receiver) is called on a value (`r`), but Go automatically handles
 	// the conversion to a pointer.
 	// `preim` (value receiver) is called directly on the value (`r`).
-	fmt.Println(r.arear(), r.preim()) // Output: 50 30
+	fmt.Println(r.area(), r.preim()) // Output: 50 30
 
 	// Create a pointer to the `rect` instance.
 	rp := &r
 
 	// Call methods on the pointer to the `rect` instance.
-	// `arear` (pointer receiver) works directly with the pointer.
+	// `area` (pointer receiver) works directly with the pointer.
 	// `preim` (value receiver) can also be called on a pointer because Go automatically
 	// dereferences the pointer to call the method on the value.
-	fmt.Println(rp.arear(), rp.preim()) // Output: 50 30
+	fmt.Println(rp.area(), rp.preim()) // Output: 50 30
 
 	// **Key Notes:**
 	// - Use a pointer receiver (`*rect`) when:

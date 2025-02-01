@@ -22,8 +22,4 @@ func main() {
 
 	delete(m, "k2")
 	fmt.Println("map:", m)
-
-	// // Clear the map using a function (this is assumed to be implemented elsewhere)
-	// clear(m)
-	// fmt.Println("map:", m)
 }
