@@ -22,6 +22,7 @@ func main() {
 }
 
 // 1. Type Constraints: Define a custom constraint interface
+//  this is not a custom type like struct or type Day int. Instead, it defines a type set for generic functions.
 type Number interface {
 	int | float64
 }

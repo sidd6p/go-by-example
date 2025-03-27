@@ -16,7 +16,7 @@ copy(a, c) creates a new slice with copied elements, so changes to a won't affec
 Array:
 a = c creates a new array with copied elements, so changes to a won't affect c.  (shallow copy)
 a = c[:] creates a new slice with copied elements, so changes to a will affect c.
-copy(a, c) When copying a slice, it creates a shallow copy of the elements, meaning it copies the values but doesn't create a new underlying array (for slices). For arrays, since their size is fixed, you would generally assign them directly, which creates a copy.
+copy(a, c) When copying a slice, it creates a shallow copy of the elements, meaning it copies the values but doesn't create a new underlying array. For arrays, since their size is fixed, you would generally assign them directly, which creates a copy.
 */
 
 func main() {

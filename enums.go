@@ -4,7 +4,7 @@ import "fmt"
 
 // Define a custom type 'Day' based on the int type.
 // Type keyword is used to define Creating Custom Types, Type Aliasing, Defining Structs, Declaring Interfaces, Creating Function Type Aliases or Defining Constants with Custom Types
-type Day int
+type Day int // aliasing mechanism
 
 // Define constants for days of the week using iota.
 const (

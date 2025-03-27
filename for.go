@@ -15,6 +15,7 @@ func main() {
 	}
 
 	// The loop below is incomplete; range requires a valid data structure like a slice
+	// because range in Go only works with iterables like slices, arrays, maps, strings, or channels.
 	// for i := range 3 { }
 
 	// Infinite loop: runs forever, must be manually stopped
