@@ -60,8 +60,11 @@ func typeSwitchDemo(value interface{}) {
 func main() {
 	// --- Example 1: Basic Type Assertion ---
 	fmt.Println("---- Type Assertion Example ----")
-	var myVar interface{} = "Hello, Go!"
-	typeAssertionDemo(myVar)
+
+	// Declaring an empty interface variable 'x' that can hold any type
+	// The empty interface is a type that can store any value
+	var x interface{} = "Hello, Go!" // Assigning a string value to the empty interface
+	typeAssertionDemo(x)
 
 	// --- Example 2: Type Assertion on Errors ---
 	fmt.Println("\n---- Type Assertion on Errors ----")
