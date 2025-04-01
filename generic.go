@@ -3,17 +3,14 @@ package main
 import "fmt"
 
 func main() {
-	// Using the generic function
 	intResult := Add(10, 20)     // T is int
 	floatResult := Add(5.5, 2.3) // T is float64
 	fmt.Println("Sum of integers:", intResult)
 	fmt.Println("Sum of floats:", floatResult)
 
-	// Using the generic type
 	stringPair := Pair[string, string]{First: "Hello", Second: "World"}
 	intPair := Pair[int, int]{First: 1, Second: 2}
 
-	// Using 'any' as a type constraint for Pair
 	mixedPair := Pair[int, any]{First: 1, Second: "Go"}
 
 	fmt.Println("String Pair:", stringPair)
