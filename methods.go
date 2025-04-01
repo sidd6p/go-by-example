@@ -12,7 +12,6 @@ type rect struct {
 	width, length int
 }
 
-// Define a method `area` to calculate the area of the rectangle.
 // This method has a receiver of type `*rect` (pointer to `rect`).
 // Using a pointer receiver allows the method to modify the original struct if needed
 // and avoids copying the struct on method calls.
@@ -20,7 +19,6 @@ func (r *rect) area() int {
 	return r.length * r.width
 }
 
-// Define a method `preim` to calculate the perimeter of the rectangle.
 // This method has a receiver of type `rect` (value type).
 // Using a value receiver means the method operates on a copy of the struct,
 // so it cannot modify the original struct.
