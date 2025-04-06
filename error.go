@@ -5,54 +5,106 @@ import (
 	"fmt"
 )
 
-// f1 demonstrates simple error handling using the built-in errors.New.
-func f1(num float64) (float64, error) {
+// Sentinel error: a predefined, reusable error variable
+var ErrZeroInput = errors.New("input is zero")
+
+// f1 returns the reciprocal of a float.
+// It demonstrates both direct and wrapped sentinel error usage.
+func f1(num float64, wrap bool) (float64, error) {
 	if num == 0 {
-		// Return an error indicating the issue
-		return -1, errors.New("it is zero")
+		if wrap {
+			// Wrapping the sentinel error using fmt.Errorf + %w allows it to be unwrapped later
+			return -1, fmt.Errorf("f1 failed: %w", ErrZeroInput)
+		}
+		// Returning the sentinel error directly (no wrapping)
+		return -1, ErrZeroInput
 	}
-	// Return the reciprocal and no error
-	return float64(1.0 / num), nil
+	return 1.0 / num, nil
 }
 
-// Custom error type `myError` allows for more detailed error handling
-// with additional fields like `num` and `prob` (problem description).
+// Custom error type with fields for richer error information
 type myError struct {
-	num  int    // The number causing the error
-	prob string // A description of the problem
+	num  int
+	prob string
 }
 
-// Error method implements the error interface for `myError`,
-// providing a formatted error message.
+// Implement the error interface for custom error type
 func (e myError) Error() string {
 	return fmt.Sprintf("%d - %s", e.num, e.prob)
 }
 
-// f2 demonstrates the use of a custom error type `myError`.
-// It returns the reciprocal of an integer and an error if the input is zero.
+// f2 returns a reciprocal of int and demonstrates a custom error type
 func f2(num int) (int, error) {
 	if num == 0 {
-		// Return a custom error when the input is zero
 		return -1, myError{num, "it is zero"}
 	}
-	// Return the reciprocal and no error
 	return int(1.0 / float64(num)), nil
 }
 
 func main() {
-	// Example usage of f1
-	fmt.Println(f1(10.0)) // Should print: (0.1, <nil>)
-	fmt.Println(f1(0))    // Should print: (-1, it is zero)
+	// --- Using sentinel error without wrapping ---
+	res1, err1 := f1(0, false)
+	fmt.Println("f1 (no wrap):", res1, err1)
 
-	// Example usage of f2
-	fmt.Println(f2(10)) // Should print: (0, <nil>)
-	fmt.Println(f2(0))  // Should print: (-1, 0 - it is zero)
-
-	// Handling the custom error returned by f2
-	_, e := f2(0)
-	fmt.Println("This is me", e.Error()) // Accessing the error message
-	if ae, ok := e.(myError); ok {       // Type assertion to access custom error fields
-		fmt.Println(ae.num)  // Prints: 0
-		fmt.Println(ae.prob) // Prints: it is zero
+	// You can compare directly using == when not wrapped
+	if err1 == ErrZeroInput {
+		fmt.Println("✅ err1 matched using == : sentinel error matched directly")
 	}
+
+	// You can still use errors.Is even if the error is not wrapped — it falls back to ==
+	if errors.Is(err1, ErrZeroInput) {
+		fmt.Println("✅ err1 matched using errors.Is : fallback to == worked")
+	}
+
+	// --- Using sentinel error WITH wrapping ---
+	res2, err2 := f1(0, true)
+	fmt.Println("f1 (with wrap):", res2, err2)
+
+	// This won't work: err2 != ErrZeroInput because it’s wrapped
+	if err2 == ErrZeroInput {
+		fmt.Println("❌ err2 == ErrZeroInput (won’t match because it's wrapped)")
+	}
+
+	// Use errors.Is to match the underlying sentinel error inside a wrapped error
+	if errors.Is(err2, ErrZeroInput) {
+		fmt.Println("✅ err2 matched using errors.Is : correctly detected wrapped sentinel error")
+	}
+
+	// --- Wrong way: wrapping using %v (not detectable by errors.Is) ---
+	errWrong := fmt.Errorf("bad wrap: %v", ErrZeroInput)
+	if errors.Is(errWrong, ErrZeroInput) {
+		fmt.Println("❌ matched incorrectly")
+	} else {
+		fmt.Println("🚫 errWrong: errors.Is failed as expected (because %v doesn’t wrap)")
+	}
+
+	// --- f2 custom error type ---
+	res3, err3 := f2(10)
+	fmt.Println("f2 (valid input):", res3, err3)
+
+	res4, err4 := f2(0)
+	fmt.Println("f2 (custom error):", res4, err4)
+
+	// Access fields using type assertion (custom error)
+	if ae, ok := err4.(myError); ok {
+		fmt.Println("🛠️ Custom error details:")
+		fmt.Println("- num:", ae.num)
+		fmt.Println("- prob:", ae.prob)
+	}
+
+	// ⚠️ NOTE: errors.Is works by comparing known sentinel values or wrapped chains.
+	// But here we're creating a *new instance* of myError on the fly,
+	// so even if the content is same, the pointer/reference is different.
+	// Hence, `errors.Is` returns false — it's not meant for custom struct matching.
+	if errors.Is(err4, myError{0, "it is zero"}) {
+		fmt.Println("✅ matched custom error? (unexpected!)")
+	} else {
+		// ✅ Correct expectation: errors.Is fails to match two different struct instances.
+		fmt.Println("🚫 errors.Is cannot match custom error types by value — use type assertion instead")
+	}
+
+	// ✅ Best practice:
+	// Use type assertions (as shown above) to match custom error types
+	// and access their fields for detailed logic or logging.
+
 }
