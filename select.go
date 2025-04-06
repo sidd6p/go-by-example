@@ -34,8 +34,13 @@ func main() {
 		case msg2 := <-ch2:
 			fmt.Println(msg2)
 
-			// If neither channel has data yet, select blocks and waits
-			// (unless you add a 'default' case)
+		// If neither channel has data yet, select blocks and waits
+		// (unless you add a 'default' case)
+
+		// The default case makes this select non-blocking.
+		// If neither ch1 nor ch2 is ready, this runs immediately.
+		default:
+			fmt.Println("no message available right now")
 		}
 	}
 
@@ -51,4 +56,10 @@ func main() {
 	//         fmt.Println(msg2)
 	//     }
 	// }
+
+	// 📝 Explanation of default:
+	// The 'default' case in a select makes it non-blocking.
+	// That means: if none of the channel operations are ready to proceed,
+	// the select will not wait — it will immediately run the default block.
+	// This is useful when you want to avoid being stuck waiting on channels.
 }
