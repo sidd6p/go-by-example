@@ -12,8 +12,11 @@ A collection of **Go (Golang) examples** inspired by [Go by Example](https://gob
 ```
 📦 go-by-example
  ┣ 📜 anonymous.go
+ ┣ 📜 api.go
+ ┣ 📜 array-vs-slice.go
  ┣ 📜 array.go
- ┣ 📜 array-vs-slice
+ ┣ 📜 channels.go
+ ┣ 📜 close.go
  ┣ 📜 closures.go
  ┣ 📜 enums.go
  ┣ 📜 error.go
@@ -25,17 +28,26 @@ A collection of **Go (Golang) examples** inspired by [Go by Example](https://gob
  ┣ 📜 if.go
  ┣ 📜 interface.go
  ┣ 📜 iota.go
+ ┣ 📜 LICENSE
+ ┣ 📜 make-new.go
  ┣ 📜 map.go
  ┣ 📜 methods.go
+ ┣ 📜 mutability.go
+ ┣ 📜 newrequest.go
  ┣ 📜 pointer.go
  ┣ 📜 range.go
+ ┣ 📜 README.md
  ┣ 📜 runes-strings.go
+ ┣ 📜 select.go
  ┣ 📜 slice.go
  ┣ 📜 struct-embedding.go
  ┣ 📜 struct.go
  ┣ 📜 switch.go
- ┣ 📜 type-assertion
+ ┣ 📜 sync.go
+ ┣ 📜 type-assertion.go
  ┣ 📜 type-defination.go
+ ┣ 📜 type.go
+ ┣ 📜 typed.go
  ┣ 📜 variables.go
  ┣ 📜 variadic-functions.go
 ```
