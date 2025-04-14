@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 )
 
@@ -17,9 +17,9 @@ func main() {
 	}
 	defer response.Body.Close() // Ensures that the response body is closed to free up resources.
 
-	// ioutil.ReadAll reads from an io.Reader (response.Body in this case) and returns a byte slice ([]byte).
+	// io.ReadAll reads from an io.Reader (response.Body in this case) and returns a byte slice ([]byte).
 	// It essentially converts the response body (stream data) into a slice of bytes for easy manipulation.
-	body, err := ioutil.ReadAll(response.Body)
+	body, err := io.ReadAll(response.Body)
 	if err != nil {
 		fmt.Println("Error reading GET response:", err)
 		return
@@ -51,9 +51,9 @@ func main() {
 	}
 	defer response.Body.Close() // Ensures that the response body is properly closed.
 
-	// Again, ioutil.ReadAll reads from an io.Reader (response.Body) and converts it into a byte slice ([]byte).
+	// Again, io.ReadAll reads from an io.Reader (response.Body) and converts it into a byte slice ([]byte).
 	// This allows us to work with the full response data in memory rather than reading it in chunks.
-	body, err = ioutil.ReadAll(response.Body)
+	body, err = io.ReadAll(response.Body)
 	if err != nil {
 		fmt.Println("Error reading POST response:", err)
 		return

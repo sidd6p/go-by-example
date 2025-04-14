@@ -8,7 +8,7 @@ func main() {
 		fmt.Println("Hello from anonymous function!")
 	}() // Immediately invoking it
 
-	// 2. Storing an anonymous function in a variable and calling it
+	// 2. Storing an anonymous function in a variable and calling it later
 	greet := func(name string) {
 		fmt.Printf("Hello, %s!\n", name)
 	}
