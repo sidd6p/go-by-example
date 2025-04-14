@@ -5,7 +5,6 @@ import (
 	"time"
 )
 
-// f prints a string along with an index three times.
 func f(str string) {
 	for i := 0; i < 3; i++ {
 		fmt.Println(str, ":", i)

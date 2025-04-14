@@ -34,8 +34,10 @@ func main() {
 		"userId": 1,
 	}
 
-	// json.Marshal converts a Go data structure (map in this case) into a JSON byte slice.
-	// This is necessary because HTTP POST requests require JSON-formatted payloads.
+	// json.Marshal converts a Go data structure (in this case, a map with string keys and interface{} values) into a JSON byte slice.
+	// The map uses interface{} to allow storing values of any type, which is useful when the data structure needs to accommodate
+	// different types, such as strings, integers, etc. This is necessary because HTTP POST requests often require JSON-formatted payloads,
+	// where the structure and types of the data may not be known in advance.
 	jsonData, err := json.Marshal(postData)
 	if err != nil {
 		fmt.Println("Error marshalling JSON:", err)

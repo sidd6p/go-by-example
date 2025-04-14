@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"time"
 )
@@ -46,7 +46,7 @@ func main() {
 	defer response.Body.Close() // Close response body to free resources
 
 	// Read the response body
-	body, err := ioutil.ReadAll(response.Body)
+	body, err := io.ReadAll(response.Body)
 	if err != nil {
 		fmt.Println("Error reading GET response:", err)
 		return
@@ -89,7 +89,7 @@ func main() {
 	defer response.Body.Close() // Close response body to free resources
 
 	// Read the POST response
-	body, err = ioutil.ReadAll(response.Body)
+	body, err = io.ReadAll(response.Body)
 	if err != nil {
 		fmt.Println("Error reading POST response:", err)
 		return
