@@ -6,27 +6,14 @@ import (
 )
 
 func main() {
-	// 🔹 Unbuffered Channel Example
 	unbuffered()
-
-	fmt.Println()
-
-	// 🔹 Buffered Channel Example
 	buffered()
-
-	fmt.Println()
-
-	// 🔹 Directional Channel Example (Ping-Pong)
 	directionalPingPong()
 }
 
-// -----------------------------------
-// 🔄 Unbuffered Channel Example
 func unbuffered() {
-	// Create a new unbuffered channel of type string.
 	messages := make(chan string) // Unbuffered channel (capacity = 0)
 
-	// Start a new goroutine to send a message.
 	go func() {
 		messages <- "ping" // This send will block until another goroutine is ready to receive.
 	}()
@@ -37,8 +24,6 @@ func unbuffered() {
 	fmt.Println("Unbuffered:", msg)
 }
 
-// -----------------------------------
-// 📦 Buffered Channel Example
 func buffered() {
 	// Create a buffered channel with capacity of 2.
 	messages := make(chan string, 2)
@@ -65,9 +50,6 @@ func buffered() {
 	fmt.Println("Buffered: received ->", <-messages)
 	fmt.Println("Buffered: received ->", <-messages)
 }
-
-// -----------------------------------
-// 🎯 Directional Channel Example (Ping-Pong)
 
 func directionalPingPong() {
 	fmt.Println("Ping-Pong (Directional Channels):")
