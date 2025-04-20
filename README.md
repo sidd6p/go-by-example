@@ -3,72 +3,80 @@
 - A collection of **Go (Golang) examples** inspired by [Go by Example](https://gobyexample.com/).
 - This repository is designed to help developers understand Go concepts with improved explanations, additional comments, and modified code for better clarity.
 
+---
 
 ## 📌 Features
+
 ✅ Go language examples with detailed comments  
 ✅ Modified code to enhance understanding  
 ✅ Covers essential Go concepts with practical implementations  
-✅ Beginner-friendly and easy to follow
+✅ Beginner-friendly and easy to follow  
 
+---
 
 ## 📂 Repository Structure (Organized by Go Concepts)
 
-#### 🧮 Variables & Constants
+### 🧮 Variables & Constants
 ┣ 📜 `variables.go`  
 ┣ 📜 `iota.go`
 
-#### 🧱 Data Types & Structs
+### 🧱 Data Types & Structs
 ┣ 📜 `type.go`  
 ┣ 📜 `typed.go`  
 ┣ 📜 `type-defination.go`  
 ┣ 📜 `enums.go`  
 ┣ 📜 `struct.go`  
 ┣ 📜 `struct-embedding.go`  
-┣ 📜 `mutability.go`
+┣ 📜 `mutability.go`  
+┣ 📜 `runes-strings.go`
 
-#### 📚 Arrays, Slices & Maps
+### 📚 Arrays, Slices & Maps
 ┣ 📜 `array.go`  
 ┣ 📜 `array-vs-slice.go`  
 ┣ 📜 `slice.go`  
 ┣ 📜 `map.go`  
 ┣ 📜 `make-new.go`
 
-#### 🔁 Control Structures (Loops, Conditionals, Switch)
+### 🔁 Control Structures (Loops, Conditionals, Switch)
 ┣ 📜 `for.go`  
 ┣ 📜 `if.go`  
-┣ 📜 `switch.go`
+┣ 📜 `switch.go`  
+┣ 📜 `range.go`
 
-#### 🧩 Functions & Methods
-┣ 📜 `functions.go`  
+### 🧩 Functions & Methods
 ┣ 📜 `variadic-functions.go`  
 ┣ 📜 `methods.go`  
-┣ 📜 `closures.go`
+┣ 📜 `closures.go`  
+┣ 📜 `anonymous.go`
 
-#### 🔌 Interfaces & Struct Embedding
+### 🔌 Interfaces & Type Assertions
 ┣ 📜 `interface.go`  
-┣ 📜 `type-assertion.go`  
-┣ 📜 `struct-embedding.go`
+┣ 📜 `type-assertion.go`
 
-#### ⚙️ Goroutines & Concurrency
+### ⚙️ Goroutines & Concurrency
 ┣ 📜 `goroutines.go`  
 ┣ 📜 `channels.go`  
 ┣ 📜 `select.go`  
 ┣ 📜 `close.go`  
-┣ 📜 `sync.go`
+┣ 📜 `sync.go`  
+┣ 📜 `signals.go`
 
-#### ❗ Error Handling & Panic/Recover
+### ❗ Error Handling & System Calls
 ┣ 📜 `error.go`  
+┣ 📜 `exit.go`  
 ┣ 📜 `newrequest.go`  
 ┣ 📜 `api.go`
 
-#### 📌 Pointers & Memory Management
+### 📌 Pointers & Memory Management
 ┣ 📜 `pointer.go`
 
-#### 🧬 Generics
+### 🧬 Generics
 ┣ 📜 `generic.go`
 
-#### 🔰 Basics / Miscellaneous
-┣ 📜 `hello.go`  
+### 🔰 Basics / Miscellaneous
+┣ 📜 `hello.go`
+
+---
 
 ## 🛠 Installation & Usage
 
@@ -89,8 +97,7 @@ go run hello.go
 
 📌 Tip: You can replace `hello.go` with any other file name to explore different Go concepts!
 
-
-
+---
 
 ## 🚀 Contributing
 
@@ -105,15 +112,20 @@ To contribute:
 
 > 📢 Don't forget to ⭐ the repo if you find it helpful!
 
-
+---
 
 ## 📜 License
+
 📄 This project is licensed under the **Apache License 2.0**.  
 📄 See the `LICENSE` file for more details.
 
+---
+
 ## 📬 Contact
+
 🔗 [GitHub – sidd6p](https://github.com/sidd6p)  
 ✉️ Email: siddpurwar@gmail.com
 
 ---
-Feel free to ⭐ this repository if you find it useful! 🌟
+
+🌟 Feel free to ⭐ this repository if you find it useful!
